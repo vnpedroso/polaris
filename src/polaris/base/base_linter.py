@@ -46,7 +46,7 @@ class Linter:
 
     def _severity_fmt(self, conviction: Conviction) -> str:
         color       = Fore.YELLOW
-        severity    = conviction.Severity
+        severity    = conviction.offense.severity
 
         if severity == Severity.ERROR:
             color = Fore.RED
