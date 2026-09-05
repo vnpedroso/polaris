@@ -6,7 +6,7 @@ readme = "README.md"
 authors = [
     { name = "vnpedroso", email = "npp.vinicius@gmail.com" }
 ]
-requires-python = ">=3.14"
+requires-python = ">=3.12"
 dependencies = [
     "colorama>=0.4.6",
 ]
