@@ -99,4 +99,6 @@ class Linter:
                     message
                 )
 
-        print(output)
+                print(output)
+
+        return
