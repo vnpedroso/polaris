@@ -31,6 +31,9 @@ class BaseChecker(ast.NodeVisitor):
         self.offense_code   = offense_code
         self.offenses       = set()
 
+    def reset(self) -> None:
+        self.offenses = set()
+
 class Linter:
 
     SENTENCE_FMT = "{:.<55} {}: {}"
@@ -63,7 +66,7 @@ class Linter:
         tree        = ast.parse(code)
 
         for checker in self.checkers:
-            checker.offenses = set()
+            checker.reset()
             checker.visit(tree)
 
             for offense in checker.offenses:
