@@ -88,6 +88,9 @@ class Linter:
         sentence = self.sentence
 
         if sentence:
+
+            sentence.convictions.sort(key=lambda conv: conv.offense_code.node.lineno)
+
             for conviction in sentence.convictions:
                 scope_start         = conviction.offense.node.lineno
                 scope_end           = conviction.offense.node.end_lineno
