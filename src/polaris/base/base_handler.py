@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 class BaseHandler(ABC):
 
     @abstractmethod
-    def accept(self, path: Path) -> bool:
+    def accept(self, file: Path) -> bool:
         pass 
 
     def collect(self, files: list[str]):
