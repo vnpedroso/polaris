@@ -1,9 +1,12 @@
 import ast
+import sys
 from dataclasses import dataclass
 from enum import IntEnum
 from pathlib import Path
 
 from colorama import Fore, Back, Style
+
+from polaris.base.base_handler import BaseHandler
 
 class Severity(IntEnum):
     WARNING = 0
@@ -108,3 +111,14 @@ class Linter:
                 print(output)
 
         return
+
+def Lint(linter: Linter, handler: BaseHandler, files: list[str] = sys.argv[1:]) -> int:
+    if not files:
+        print("Exiting... no input detected")
+    else:
+        for file in handler.collect(files):
+            linter.run(file)
+
+        linter.print_sentence()
+
+    return linter.exit_code
