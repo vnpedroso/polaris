@@ -8,6 +8,8 @@ from colorama import Fore, Back, Style
 
 from polaris.base.base_handler import BaseHandler
 
+DEFAULT_ENCODING = "utf-8"
+
 class Severity(IntEnum):
     WARNING = 0
     ERROR   = 1
@@ -62,7 +64,7 @@ class Linter:
 
     def run(self, file: Path):
 
-        with open(file, "r", encoding="utf-8") as f:
+        with open(file, "r", encoding=DEFAULT_ENCODING) as f:
             code = f.read()
 
         file_name   = file.name
