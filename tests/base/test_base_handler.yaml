@@ -1,0 +1,5 @@
+---
+dir: "dummy"
+files: 
+    foo.txt: ""
+    bar.txt: ""
