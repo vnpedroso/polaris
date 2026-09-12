@@ -1,0 +1,8 @@
+---
+dir: "test_example_handler"
+files:
+  first_example.py: ""
+  second_example.py: ""
+  thrid_example.txt: ""
+  fourth.py: ""
+

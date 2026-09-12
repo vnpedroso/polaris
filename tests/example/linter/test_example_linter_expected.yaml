@@ -1,0 +1,5 @@
+sentence: | 
+  test_example.py:0:0............................... TEST_EXP_001:WARNING: variable s is not used within its module scope
+  test_example.py:0:0............................... TEST_EXP_001:WARNING: variable s2 is not used within its module scope
+  test_example.py:4:19.............................. TEST_EXP_001:WARNING: variable var is not used within its function scope
+  test_example.py:17:19............................. TEST_EXP_001:WARNING: variable var is not used within its function scope
