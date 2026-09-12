@@ -12,7 +12,7 @@ dependencies = [
 ]
 
 [project.scripts]
-polaris = "polaris:main"
+example_lint = "polaris.example.linter.example_linter:example_lint"
 
 [build-system]
 requires = ["uv_build>=0.9.22,<0.10.0"]
