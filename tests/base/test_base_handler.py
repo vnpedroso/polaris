@@ -5,18 +5,18 @@ from pytest import mark
 from polaris.base.base_handler import BaseHandler
 
 @mark.base
-@mark.base_handler
+@mark.handler
 class TestHandler(BaseHandler):
 
     def accept(self, file: Path) -> bool:
-        if file.suffix == ".py":
+        if file.suffix == ".txt":
             return True
 
     @mark.base
-    @mark.base_handler
+    @mark.handler
     @mark.parametrize(
         "mock_scripts",
-        ["tests/base/test_base_handler.json"],
+        ["tests/base/test_base_handler.yaml"],
         indirect=True
     )
     def test_collect(self, mock_scripts):
