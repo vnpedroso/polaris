@@ -8,7 +8,8 @@ from colorama import Fore, Back, Style
 
 from polaris.base.base_handler import BaseHandler
 
-DEFAULT_ENCODING = "utf-8"
+DEFAULT_ENCODING:   str   = "utf-8"
+SENTENCE_FMT:       str   = "{:.<50} {}: {}"
 
 class Severity(IntEnum):
     WARNING = 0
@@ -41,7 +42,6 @@ class BaseChecker(ast.NodeVisitor):
 
 class Linter:
 
-    SENTENCE_FMT = "{:.<55} {}: {}"
 
     def __init__(self):
         self.checkers   = set()
@@ -93,8 +93,7 @@ class Linter:
         sentence = self.sentence
 
         if sentence:
-
-            sentence.convictions.sort(key=lambda conv: conv.offense_code.node.lineno)
+            sentence.convictions.sort(key=lambda conv: conv.offense.node.lineno)
 
             for conviction in sentence.convictions:
                 scope_start         = conviction.offense.node.lineno
@@ -104,7 +103,7 @@ class Linter:
                 offense_code        = self._offense_code_fmt(conviction)
                 severity            = self._severity_fmt(conviction)
 
-                output = self.SENTENCE_FMT.format(
+                output = SENTENCE_FMT.format(
                     f"{file_name}:{scope_start}:{scope_end}",
                     f"{offense_code}:{severity}",
                     message
